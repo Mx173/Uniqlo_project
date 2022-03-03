@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseContentPage   xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         x:Class="uniqlo_project.Views.LoginPage"
+                         xmlns:views="clr-namespace:uniqlo_project.Views;assembly=uniqlo_project"
+                         xmlns:controls="clr-namespace:uniqlo_project.Controls"
+                         xmlns:ncontrol="clr-namespace:NControl.Controls;assembly=NControl.Controls"
+                         xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+                         xmlns:resources="clr-namespace:uniqlo_project.Resources.Strings"
+                         xmlns:converters="clr-namespace:uniqlo_project.Converters;">
+    
+    <Grid Padding="0,25" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.20*" />
+            <RowDefinition Height="0.35*" />
+            <RowDefinition Height="0.30*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*" />
+            <ColumnDefinition Width="0.90*" />
+            <ColumnDefinition Width="0.05*" />
+        </Grid.ColumnDefinitions>
+        
+        <Image Source="uniqlo_upd" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+        
+        <StackLayout Grid.Row="3" Grid.Column="1" Spacing="15">
+            <StackLayout Spacing="10">
+                <controls:ShadowFrame HeightRequest="45" CornerRadius="4" Padding="0" HasShadow="true" >
+                    <controls:ImageEntry Text="{Binding Email}" PlaceholderText="{x:Static resources:Strings.Email}" Keyboard="Email" ImageSource="ic_user" VerticalOptions="Center" IsPassword="false" IsPasswordEntry="false"/>
+                </controls:ShadowFrame>
+                
+                <controls:CustomLabel 
+                    HorizontalOptions="Center" 
+                    HorizontalTextAlignment="Center" 
+                    Text="{Binding EmailAlert}"  
+                    HeightRequest="15"
+                    Style="{StaticResource ErrorLabelStyle}"/>
+                
+                <controls:ShadowFrame CornerRadius="4" HeightRequest="45" Padding="0" HasShadow="true" >
+                    <controls:ImageEntry x:Name="passField" Text="{Binding Password}" PlaceholderText="{x:Static resources:Strings.Password}" ImageSource="ic_user" VerticalOptions="Center" IsPasswordEntry="false" IsPassword="false"/>
+                </controls:ShadowFrame>
+                
+                <controls:CustomLabel 
+                    HorizontalOptions="Center" 
+                    HorizontalTextAlignment="Center" 
+                    Text="{Binding PasswordAlert}" 
+                    HeightRequest="15"
+                    Style="{StaticResource ErrorLabelStyle}"/>
+           
+            </StackLayout>
+            
+            
+            <controls:ClickableContentView Command="{Binding SignInCommand}" Margin="0,10,0,5">
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" HorizontalOptions="Center">
+                    <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource buttonColor}" CornerRadius="6" HorizontalOptions="Center" VerticalOptions="Fill" BorderWidth="0">
+                        <Grid>
+                            <controls:NavPageGradientBGControl/>
+                            <Label TextColor="{StaticResource lightAccentColor}" VerticalOptions="Center" HorizontalOptions="Center" Text="{x:Static resources:Strings.SignIn}" FontSize="20"/>
+                        </Grid>
+                    </ncontrol:RoundCornerView>
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>
+            
+            
+            <controls:ClickableContentView Command="{Binding ForgotPasswordCommand}">
+                <StackLayout HorizontalOptions="Center" Spacing="0">
+                    <Label Text="{x:Static resources:Strings.ForgotPassword}" HorizontalOptions="Center" TextColor="{StaticResource lightTextColor}" FontSize="15" />
+                    <BoxView HeightRequest="1" BackgroundColor="{StaticResource lightTextColor}" HorizontalOptions="Fill" />
+                </StackLayout>
+            </controls:ClickableContentView>
+            
+            
+            <StackLayout VerticalOptions="FillAndExpand" >
+            
+                <!--<Grid ColumnSpacing="0" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="0,5,0,0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.12*" />
+                        <ColumnDefinition Width="0.76*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ContentView Grid.Column="0" BackgroundColor="Transparent" VerticalOptions="Center">
+                        <Image Source="{Binding IsCheckedAutoLogin, Converter={StaticResource CheckBoxIndicatorConverter}}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                        <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SelectCheckBoxCommand}"/>
+                        </ContentView.GestureRecognizers>
+                    </ContentView>
+                    
+                    <controls:CustomLabel
+                        Grid.Column="1"
+                        Text="{x:Static resources:Strings.AutologinDescription}"
+                        TextColor="{StaticResource textColor}"
+                        FontSize="15"/>  
+                </Grid>-->
+                
+                <!--<StackLayout Spacing="10" VerticalOptions="CenterAndExpand">
+                    
+                    <Label TextColor="{StaticResource textColor}" Text="{x:Static resources:Strings.UseProfile}" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="13" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" VerticalOptions="Center">
+                        <controls:ClickableContentView HorizontalOptions="Center" Command="{Binding FBLoginCommand}">
+                            <Image Source="ic_user" />
+                        </controls:ClickableContentView>
+                        <controls:ClickableContentView HorizontalOptions="Center" Command="{Binding GoogleLoginCommand}">
+                            <Image Source="ic_user" />
+                        </controls:ClickableContentView>
+                    </StackLayout>
+
+                </StackLayout>-->
+                
+               
+                    
+          
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand" >
+                    <Label HorizontalTextAlignment="Center" TextColor="{StaticResource textColor}" Text="{x:Static resources:Strings.DontHaveAccount}" HorizontalOptions="Center" FontSize="17" />
+                    <controls:ClickableContentView Command="{Binding SignUpCommand}" HorizontalOptions="Center">
+                        <StackLayout Spacing="0">
+                            <Label Text="{x:Static resources:Strings.SignUp}" TextColor="{StaticResource lightTextColor}" FontSize="17" />
+                            <BoxView HeightRequest="1" BackgroundColor="{StaticResource lightTextColor}" HorizontalOptions="Fill" />
+                        </StackLayout>
+                    </controls:ClickableContentView>
+                </StackLayout>
+                                  
+            </StackLayout>
+                
+        </StackLayout>
+    </Grid>
+</views:BaseContentPage>

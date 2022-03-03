@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="uniqlo_project.Views.HomePageView"
+             xmlns:views="clr-namespace:uniqlo_project.Views;assembly=uniqlo_project"
+             xmlns:controls="clr-namespace:uniqlo_project.Controls"
+             xmlns:ncontrol="clr-namespace:NControl.Controls;assembly=NControl.Controls"
+             xmlns:resources="clr-namespace:uniqlo_project.Resources.Strings"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:imageCircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             ios:Page.UseSafeArea="false" >
+      
+    <Grid Padding="0,0,0,25" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="350" />
+            <RowDefinition Height="0.3*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*" />
+            <ColumnDefinition Width="0.90*" />
+            <ColumnDefinition Width="0.05*" />
+        </Grid.ColumnDefinitions>
+            
+        <controls:NavigationBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" SettingsCommand="{Binding SettingsCommand}" GoBackCommand="{Binding BackCommand}"
+                                Title="{x:Static resources:Strings.HomePageTitle}" BackArrowVisibility="False"/>
+        
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Padding="0,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.25*" />
+            </Grid.ColumnDefinitions>
+            
+            <controls:CustomLabel Grid.Column="1"
+                Text="{Binding Name}" HorizontalOptions="End" VerticalOptions="Center"
+                FontSize="17" FontAttributes="Bold" Margin="0,0,-15,0"/>
+            
+            <Grid Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <controls:ClickableContentView Command="{Binding GoToUserProfile}">
+                    <imageCircle:CircleImage
+                        Source="{Binding Attachment}" HorizontalOptions="End"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        Aspect="AspectFill"
+                        BorderThickness="3"
+                        BorderColor="{StaticResource greenColor}"/>
+                </controls:ClickableContentView>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1" Padding="0,0,10,0" WidthRequest="250" HorizontalOptions="Center" >
+
+            <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+            <controls:CustomLabel Text="{x:Static resources:Strings.ResultsTitle}" HorizontalOptions="Start" VerticalOptions="Start" FontSize="17" />
+            <Image x:Name="img" Grid.Column="0" Grid.Row="0" Source="girl_size" Margin="0,10,0,0" />
+
+            <Grid x:Name="controlGrid" RowSpacing="1" ColumnSpacing="1" Grid.Column="0" Grid.Row="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.14*" />
+                    <RowDefinition Height="0.06*"  />
+                    <RowDefinition Height="0.06*" />
+                    <RowDefinition Height="0.06*" />
+                    <RowDefinition Height="0.24*" />
+                    <RowDefinition Height="0.06*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="124" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+
+            <Label Text = "-10cm" Margin="10,0,0,2" Grid.Row="1" Grid.Column="3" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" FontSize="10"/>
+            <Label Text = "+3cm" Margin="0,0,7,3" Grid.Row="2" Grid.Column="1" TextColor="DarkBlue" VerticalOptions="Center" HorizontalOptions="Center" FontSize="10"/>
+            <Label Text = "-8cm" Margin="0,10,0,3" Grid.Row="3" Grid.Column="3" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" FontSize="10"/>
+            <Label Text = "-3kg" Margin="10,0,0,3" Grid.Row="5" Grid.Column="1" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" FontSize="10"/>
+
+            </Grid>
+        </Grid>
+
+        
+
+
+        
+         
+        <Grid Grid.Row="4" Grid.Column="1" HeightRequest="150" ColumnSpacing="10" RowSpacing="15" Padding="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>-->
+            
+
+
+            <controls:ClickableContentView Grid.Row="0" Command="{Binding ChangeAvatarCommand}" Grid.ColumnSpan="2"
+                                           HorizontalOptions="Fill" VerticalOptions="Fill" >
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0"  >
+                    <Label TextColor="Black" Text="{x:Static resources:Strings.DailyMeasurements}" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>
+
+            <!--<controls:ClickableContentView Grid.Column="1" Grid.Row="0" 
+                                           HorizontalOptions="Fill" VerticalOptions="Fill" >
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" >                   
+                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" 
+                               Text="{x:Static resources:Strings.MenuForDay}" FontSize="15" />
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>-->
+
+            <controls:ClickableContentView Grid.Row="1" Grid.ColumnSpan="2"
+                                           HorizontalOptions="Fill" VerticalOptions="Fill" >
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" >
+                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"
+                               Text="{x:Static resources:Strings.Workout}" FontSize="15" />
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>
+
+            <!--<controls:ClickableContentView Grid.Column="1" Grid.Row="1" 
+                                           HorizontalOptions="Fill" VerticalOptions="Fill" >
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" >
+                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"
+                               Text="{x:Static resources:Strings.MarathonChat}" FontSize="15" />
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>-->
+
+            <controls:ClickableContentView Grid.Row="2" Grid.ColumnSpan="2"
+                                           HorizontalOptions="Center" HeightRequest="30" VerticalOptions="Start" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Source="exc_mark" />
+                    <Label Grid.Column="1" TextColor="{x:StaticResource emergColor}" VerticalOptions="Center" HorizontalOptions="Center"
+                        Text="{x:Static resources:Strings.EmergencyCall}" FontSize="15" />
+                </Grid>    
+                
+            </controls:ClickableContentView>
+            
+        </Grid>
+      
+    </Grid>
+    
+</views:BaseContentPage>

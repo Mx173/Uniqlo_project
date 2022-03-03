@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                       xmlns:views="clr-namespace:uniqlo_project.Views;assembly=uniqlo_project" 
+                       xmlns:ncontrol="clr-namespace:NControl.Controls;assembly=NControl.Controls" 
+                       xmlns:controls="clr-namespace:uniqlo_project.Controls" 
+                       xmlns:resources="clr-namespace:uniqlo_project.Resources.Strings" 
+                       xmlns:converters="clr-namespace:uniqlo_project.Converters;" 
+                       xmlns:enum="clr-namespace:uniqlo_project.Enums;" 
+                       xmlns:local="clr-namespace:uniqlo_project;"
+                       x:Class="uniqlo_project.Views.SettingsPage"
+                       BackgroundColor="{StaticResource lightBackgroundColor}">
+    
+    <StackLayout>
+        
+        <controls:NavigationBar Title="{x:Static resources:Strings.SettingsTitle}"
+                                GoBackCommand="{Binding BackCommand}" SettingsVisibility="false"/>
+        
+        <controls:ClickableContentView Command="{Binding LogOutCommand}" HeightRequest="45" >
+            <controls:ShadowFrame CornerRadius="0" HasShadow="true" Padding="10,0,10,0" >
+                <controls:CustomLabel FontSize="17" Text="{x:Static resources:Strings.LogOut}" Style="{StaticResource MediumTitleVerticalCenterStyle}" FontFamily="{x:Static local:Fonts.MonserratRegular}"/>
+            </controls:ShadowFrame>
+        </controls:ClickableContentView>
+
+        <controls:ClickableContentView Command="{Binding  ResCommand}" HeightRequest="45" >
+            <controls:ShadowFrame CornerRadius="0" HasShadow="true" Padding="10,0,10,0" >
+                <controls:CustomLabel FontSize="17" Text="Reset password" Style="{StaticResource MediumTitleVerticalCenterStyle}" FontFamily="{x:Static local:Fonts.MonserratRegular}"/>
+            </controls:ShadowFrame>
+        </controls:ClickableContentView>
+        
+    </StackLayout>
+</views:BaseContentPage>

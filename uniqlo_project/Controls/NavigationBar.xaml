@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:uniqlo_project;" 
+             x:Class="uniqlo_project.Controls.NavigationBar"
+             xmlns:controls="clr-namespace:uniqlo_project.Controls"
+             x:Name="navContentView">
+             
+    <Grid x:Name="mainGrid" HeightRequest="68" BindingContext="{x:Reference navContentView}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0" />
+            <RowDefinition Height="68" />
+         </Grid.RowDefinitions>
+        
+        <controls:NavPageGradientBGControl Grid.RowSpan="2"/>
+
+        <Grid BackgroundColor="Transparent" Grid.Row="1" BindingContext="{x:Reference navContentView}" Padding="0,-5,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.6*" />
+                <ColumnDefinition Width="0.2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="1" />
+            </Grid.RowDefinitions>
+            
+            <controls:ClickableContentView Command="{Binding GoBackCommand}" Grid.Row="2" Grid.Column="0" VerticalOptions="End" Padding="10,0,5,0" IsVisible="{Binding BackArrowVisibility}">
+                <StackLayout HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30">
+                    <Image Source="back_arrow"  />
+                </StackLayout>
+            </controls:ClickableContentView >
+            
+            <StackLayout Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Padding="5,0,5,0" >
+                <Label  Text="{Binding Title}"  FontSize="20" TextColor="White" FontAttributes="Bold" LineBreakMode="NoWrap"/>
+            </StackLayout>
+            
+            <controls:ClickableContentView Command="{Binding SettingsCommand}" Grid.Row="2" Grid.Column="2" HorizontalOptions="End" Padding="5,0,10,0" IsVisible="{Binding SettingsVisibility}">
+                <StackLayout WidthRequest="30">
+                    <Image Source="settings" />
+                </StackLayout>
+            </controls:ClickableContentView >
+        </Grid>
+    </Grid>
+</ContentView>

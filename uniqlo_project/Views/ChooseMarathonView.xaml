@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="uniqlo_project.Views.ChooseMarathonView"
+             xmlns:views="clr-namespace:uniqlo_project.Views;assembly=uniqlo_project"
+             xmlns:controls="clr-namespace:uniqlo_project.Controls"
+             xmlns:ncontrol="clr-namespace:NControl.Controls;assembly=NControl.Controls"
+             xmlns:resources="clr-namespace:uniqlo_project.Resources.Strings" >
+
+    <StackLayout>
+        
+        <!--<controls:NavigationBar Title="{x:Static resources:Strings.ChooseMarathonTitle}"
+                                 SettingsVisibility="false" BackArrowVisibility="False"/>-->
+        
+
+        <controls:UnselectedList x:Name="phonesList"
+                  ItemsSource="{Binding Phones}"
+                  HasUnevenRows="True"
+                  BackgroundColor="Transparent"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:UnselectedCell>
+                            
+                        <StackLayout Padding="20,0,20,0">
+                            <Label Text="{Binding Company}" FontSize="24" Margin="0,20,0,0" FontAttributes="Bold"/>
+                            <Label Text="{Binding Title}" Margin="0,5,0,5" TextColor="Red"/>
+                            <controls:ClickableContentView Command="{Binding ChangeAvatarCommand}">
+                                <Frame CornerRadius="5" BackgroundColor="Orange"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Start"
+                                    HasShadow="True"
+                                    IsClippedToBounds="True"
+                                    Padding="0">
+                                    <Image Source="{Binding ImageSource}" HeightRequest="250" />
+                                </Frame>
+                            </controls:ClickableContentView>
+                            <Label Text="{x:Static resources:Strings.Price}" Margin="0,5,0,0" TextColor="Gray"/>
+
+                            <Grid>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Price}" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Green" FontSize="40" FontAttributes="Bold"/>
+                                    <Label Text="¥" FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <controls:ClickableContentView Command="{Binding ChangeAvatarCommand}"
+                                        HorizontalOptions="End" WidthRequest="140" HeightRequest="40" VerticalOptions="Center" >
+                                    <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" >
+                                        <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" CornerRadius="6" BorderWidth="1" >
+                                            <Grid>
+                                                <controls:NavPageGradientBGControl/>
+                                                <Label TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" Margin="5"
+                                                        Text="{x:Static resources:Strings.Buy}" FontSize="17" />
+                                            </Grid>
+                                        </ncontrol:RoundCornerView>
+                                    </controls:ShadowFrame>
+                                </controls:ClickableContentView>
+                            </Grid>
+
+                            <BoxView Style="{StaticResource Separator}" Margin="20,15,20,0"/>
+                        </StackLayout>
+                           
+                    </controls:UnselectedCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </controls:UnselectedList>
+
+    </StackLayout>
+
+
+</views:BaseContentPage>
+    

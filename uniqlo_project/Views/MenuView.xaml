@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<views:BaseContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="uniqlo_project.Views.MenuView"
+    xmlns:views="clr-namespace:uniqlo_project.Views"
+    xmlns:controls="clr-namespace:uniqlo_project.Controls"
+    xmlns:ncontrol="clr-namespace:NControl.Controls;assembly=NControl.Controls"
+    xmlns:resources="clr-namespace:uniqlo_project.Resources.Strings">
+    <StackLayout>
+        
+        <!--<controls:NavigationBar Title="{x:Static resources:Strings.MenuTab}"
+                                 SettingsVisibility="True" BackArrowVisibility="False" SettingsCommand="{Binding SettingsCommand}"/>-->
+        
+
+        <controls:UnselectedList x:Name="phonesList"
+                  ItemsSource="{Binding Phones}"
+                  HasUnevenRows="True"
+                  BackgroundColor="Transparent"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:UnselectedCell>
+                            
+                        <StackLayout Padding="20,20,20,0" >
+                            
+                            <controls:ClickableContentView >
+                                <Frame CornerRadius="5" BackgroundColor="Transparent"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Start"
+                                    HasShadow="True"
+                                    IsClippedToBounds="True"
+                                    Padding="0">
+                                    <Image Source="{Binding ImageSource}" HeightRequest="200" WidthRequest="200"/>
+                                </Frame>
+                            </controls:ClickableContentView>
+                            <Label Text="{Binding Company}" FontSize="18" Margin="0,5,0,0" FontAttributes="Bold"/>
+                            <Label Text="{Binding Title}" Margin="0,5,0,5" TextColor="Gray"/>
+
+                            <BoxView Style="{StaticResource Separator}" Margin="20,15,20,0"/>
+                        </StackLayout>
+                           
+                    </controls:UnselectedCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </controls:UnselectedList>
+
+    </StackLayout>
+
+
+</views:BaseContentPage>
+    

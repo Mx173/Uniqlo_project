@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       x:Class="uniqlo_project.Views.RegistrationPage"
+                       xmlns:views="clr-namespace:uniqlo_project.Views;assembly=uniqlo_project"
+                       xmlns:resources="clr-namespace:uniqlo_project.Resources.Strings"
+                       xmlns:controls="clr-namespace:uniqlo_project.Controls"
+                       xmlns:ncontrol="clr-namespace:NControl.Controls;assembly=NControl.Controls"
+                       xmlns:converters="clr-namespace:aams.Converters;"
+                       xmlns:local="clr-namespace:uniqlo_project;"
+                       x:Name = "registrationNavBar"
+                       xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                       ios:Page.UseSafeArea="false">
+            
+    <Grid Padding="0,0,0,25" >
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.6*" />
+            <RowDefinition Height="0.2*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*" />
+            <ColumnDefinition Width="0.90*" />
+            <ColumnDefinition Width="0.05*" />
+        </Grid.ColumnDefinitions>
+        
+        <controls:NavigationBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" SettingsVisibility="false"
+                                Title="{x:Static resources:Strings.RegistrationTitle}" GoBackCommand="{Binding BackCommand}" />
+        
+        <StackLayout Grid.Row="1" Grid.Column="1" Spacing="10"  VerticalOptions="FillAndExpand" >
+            
+            
+            <controls:ShadowFrame HeightRequest="45" Padding="0" HasShadow="true">
+                <controls:ImageEntry x:Name="nameField" Text="{Binding Name}" PlaceholderText="{x:Static resources:Strings.NamePlaceholder}" IsPassword="false" ImageSource="ic_user" VerticalOptions="Center" IsPasswordEntry="false"/>
+            </controls:ShadowFrame>
+        
+            <controls:CustomLabel
+                Text="{Binding NameAlert}" 
+                Style="{StaticResource ErrorLabelStyle}"
+                HorizontalOptions="Center"
+                HeightRequest="30"/>
+            
+            <controls:ShadowFrame HeightRequest="45" Padding="0" HasShadow="true">
+                <controls:ImageEntry x:Name="firstNameField" Text="{Binding FirstName}" PlaceholderText="{x:Static resources:Strings.FirstNamePlaceholder}" IsPassword="false" ImageSource="ic_user" VerticalOptions="Center" IsPasswordEntry="false"/>
+            </controls:ShadowFrame>
+        
+            <controls:CustomLabel
+                Text="{Binding FirstNameAlert}" 
+                Style="{StaticResource ErrorLabelStyle}"
+                HorizontalOptions="Center"
+                HeightRequest="30"/>
+
+            <controls:ShadowFrame HeightRequest="45" CornerRadius="4" Padding="0" HasShadow="true">
+                <controls:ImageEntry x:Name="emailField" Text="{Binding Email}" PlaceholderText="{x:Static resources:Strings.Email}" Keyboard="Email" ImageSource="ic_email" VerticalOptions="Center" IsPassword="false" IsPasswordEntry="false"/>
+            </controls:ShadowFrame>
+                
+            <controls:CustomLabel 
+                Text="{Binding EmailAlert}"
+                Style="{StaticResource ErrorLabelStyle}"
+                HorizontalOptions="Center"
+                HeightRequest="30"/>
+               
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <controls:CustomLabel Grid.Column="0"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Text="{x:Static resources:Strings.SelectGenderTitle}"
+                    FontFamily="{x:Static local:Fonts.MonserratMedium}"
+                    TextColor="{StaticResource placeholderColor}"
+                    FontSize="15"
+                    Margin="0,0,10,0"/>
+                    
+                <StackLayout Grid.Column="1" HorizontalOptions = "Start" >
+                    <controls:ClickableContentView Command="{Binding MaleClickCommand}" >
+                        <Image  Source="pic_male_unselected" HeightRequest="40">
+                            <Image.Triggers>
+                       
+                                <DataTrigger TargetType="Image" Binding="{Binding Gender}" Value="Male">
+                                     <Setter Property="Source" Value="pic_male_selected"/>
+                                </DataTrigger>
+                      
+                                <DataTrigger TargetType="Image" Binding="{Binding Gender}" Value="Female">
+                                    <Setter Property="Source" Value="pic_male_unselected"/>
+                                </DataTrigger>
+                    
+                            </Image.Triggers>
+                        </Image>
+                    </controls:ClickableContentView>
+
+            <!--        <controls:CustomLabel
+                        Text = "{x:Static resources:Strings.MaleTitle}"
+                        FontSize="15"
+                        HorizontalOptions = "Center"
+                        TextColor="{StaticResource textColor}"/>-->
+                </StackLayout>
+                        
+                <StackLayout Grid.Column="2" HorizontalOptions = "Start" >
+            
+                    <controls:ClickableContentView Command="{Binding FemaleClickCommand}">
+                        <Image  Source="pic_female_unselected" HeightRequest="40">
+                            <Image.Triggers>
+                       
+                                <DataTrigger TargetType="Image" Binding="{Binding Gender}" Value="Female">
+                                     <Setter Property="Source" Value="pic_female_selected"/>
+                                </DataTrigger>
+                      
+                           
+                                <DataTrigger TargetType="Image" Binding="{Binding Gender}" Value="Male">
+                                    <Setter Property="Source" Value="pic_female_unselected"/>
+                                </DataTrigger>
+                                
+                            </Image.Triggers>
+                        </Image>
+                    </controls:ClickableContentView>
+                    
+            <!--        <controls:CustomLabel
+                        Text = "{x:Static resources:Strings.FemaleTitle}"
+                        FontSize="15"
+                        HorizontalOptions = "Center"
+                        TextColor="{StaticResource textColor}"/>-->
+                    
+                </StackLayout>
+                
+            </Grid>
+            
+            
+            <controls:ShadowFrame HeightRequest="45" Padding="0" HasShadow="true">
+                <controls:ImageEntry x:Name="passField" Text="{Binding Password}" PlaceholderText="{x:Static resources:Strings.Password}" IsPassword="true" ImageSource="ic_cpassword" VerticalOptions="Center" IsPasswordEntry="false" />
+            </controls:ShadowFrame>
+            
+            <controls:CustomLabel
+                Text="{Binding PasswordAlert}"
+                Style="{StaticResource ErrorLabelStyle}"
+                HorizontalOptions="Center"
+                HeightRequest="30"/>
+                
+            
+            <controls:ShadowFrame HeightRequest="45" Padding="0" HasShadow="true">
+                <controls:ImageEntry x:Name="promoCodeField" Text="{Binding PromoCode}" PlaceholderText="{x:Static resources:Strings.PromoCodePlaceholder}" IsPassword="false" ImageSource="ic_cpassword" VerticalOptions="Center" IsPasswordEntry="false" />
+            </controls:ShadowFrame>
+            
+            <controls:CustomLabel
+                Text="{Binding ConfirmPasswordAlert}"
+                Style="{StaticResource ErrorLabelStyle}"
+                HorizontalOptions="Center"/>
+                   
+        </StackLayout>
+        
+        <StackLayout Grid.Row="2" Grid.Column="1">
+            
+            <controls:CustomLabel
+                Text="{x:Static resources:Strings.RegValidationDescription}"  
+                FontSize="15"
+                VerticalOptions="Start"
+                TextColor="{StaticResource placeholderColor}"/>
+            
+            <controls:ClickableContentView 
+                Command="{Binding ContinueClickedCommand}"
+                VerticalOptions="EndAndExpand">
+                
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" HorizontalOptions="Center">
+                    <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource buttonColor}" CornerRadius="6" HorizontalOptions="Center" VerticalOptions="Fill" BorderWidth="0">
+                        <Grid>
+                            <controls:NavPageGradientBGControl/>
+                            <Label TextColor="{StaticResource lightAccentColor}" VerticalOptions="Center" HorizontalOptions="Center" Text="{x:Static resources:Strings.Continue}" FontSize="15" />
+                        </Grid>
+                    </ncontrol:RoundCornerView>
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>
+            
+        </StackLayout>
+    </Grid>
+    
+</views:BaseContentPage>

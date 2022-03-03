@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    
+<!--login    -->
+    <data name="Email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="Password" xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="ForgotPassword" xml:space="preserve">
+        <value>Forgot Password</value>
+    </data>
+    <data name="SignIn" xml:space="preserve">
+        <value>Sign In</value>
+    </data>
+    <data name="AutologinDescription" xml:space="preserve">
+        <value>Autologin option</value>
+    </data>
+    <data name="DontHaveAccount" xml:space="preserve">
+        <value>Dont have account?</value>
+    </data>
+    <data name="SignUp" xml:space="preserve">
+        <value>Sign Up</value>
+    </data>
+    
+<!--rega    -->
+    <data name="NamePlaceholder" xml:space="preserve">
+        <value>Login</value>
+    </data>
+    <data name="FirstNamePlaceholder" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="SelectGenderTitle" xml:space="preserve">
+        <value>Select Gender</value>
+    </data>
+    <data name="PromoCodePlaceholder" xml:space="preserve">
+        <value>Promo Code</value>
+    </data>
+    <data name="RegValidationDescription" xml:space="preserve">
+        <value>Password must contain at least 1 number (1-9)</value>
+    </data>
+    <data name="Continue" xml:space="preserve">
+        <value>Continue</value>
+    </data>
+    <data name="RegistrationTitle" xml:space="preserve">
+        <value>Registration</value>
+    </data>
+    <data name="RequiredName" xml:space="preserve">
+        <value>Login is required. Please fill in it.</value>
+    </data>
+    <data name="RequiredFirstName" xml:space="preserve">
+        <value>Name is required. Please fill in it.</value>
+    </data>
+    <data name="InvalidNameAlert" xml:space="preserve">
+        <value>Invalid Login. Please enter only letters.</value>
+    </data>
+    <data name="InvalidFirstNameAlert" xml:space="preserve">
+        <value>Invalid Name. Please enter only letters.</value>
+    </data>
+    <data name="RequiredEmail" xml:space="preserve">
+        <value>Email is required. Please fill in it.</value>
+    </data>
+    <data name="InvalidEmailAlert" xml:space="preserve">
+        <value>Invalid Email. Please check and try again.</value>
+    </data>
+    <data name="RequiredPassword" xml:space="preserve">
+        <value>Password is required.</value>
+    </data>
+    <data name="InvalidPassword" xml:space="preserve">
+        <value>Password is invalid.</value>
+    </data>
+    
+    
+<!--forgot    -->
+    <data name="ResetPassword" xml:space="preserve">
+        <value>Reset Password</value>
+    </data>
+    <data name="ForgotPasswordTitle" xml:space="preserve">
+        <value>Forgot Password</value>
+    </data>
+    
+    
+<!--settings    -->
+    <data name="SettingsTitle" xml:space="preserve">
+        <value>Settings</value>
+    </data>
+    <data name="LogOut" xml:space="preserve">
+        <value>Log Out</value>
+    </data>
+    
+    
+<!--HomePage    -->
+    <data name="HomePageTitle" xml:space="preserve">
+        <value>Home Page</value>
+    </data>
+    <data name="ResultsTitle" xml:space="preserve">
+        <value>Results</value>
+    </data>
+    <data name="DailyMeasurements" xml:space="preserve">
+        <value>Daily measurements</value>
+    </data>
+    <data name="MenuForDay" xml:space="preserve">
+        <value>Menu for the day</value>
+    </data>
+    <data name="Workout" xml:space="preserve">
+        <value>Choose goal</value>
+    </data>
+    <data name="MarathonChat" xml:space="preserve">
+        <value>Marathon chat</value>
+    </data>
+ 
+<!--userProfile    -->
+    <data name="UserProfileTitle" xml:space="preserve">
+        <value>User Profile</value>
+    </data>
+    <data name="ProfileSectionTitle" xml:space="preserve">
+        <value>Profile</value>
+    </data>
+    <data name="ChangePhoto" xml:space="preserve">
+        <value>Change photo</value>
+    </data>
+    <data name="PersonalDataSectionTitle" xml:space="preserve">
+        <value>Personal data</value>
+    </data>
+    <data name="YourNameTitle" xml:space="preserve">
+        <value>Your name</value>
+    </data>
+    <data name="GenderTitle" xml:space="preserve">
+        <value>Gender</value>
+    </data>
+    <data name="BirthDateTitle" xml:space="preserve">
+        <value>Birth date (dd-mm-yyyy)</value>
+    </data>
+    <data name="PhoneTitle" xml:space="preserve">
+        <value>Phone number</value>
+    </data>
+    <data name="ChangePassTitle" xml:space="preserve">
+        <value>Change password</value>
+    </data>
+    <data name="CurrentPassword" xml:space="preserve">
+        <value>Current password</value>
+    </data>
+    <data name="NewPassword" xml:space="preserve">
+        <value>New password</value>
+    </data>
+    <data name="Save" xml:space="preserve">
+        <value>Save</value>
+    </data>
+    <data name="EmergencyCall" xml:space="preserve">
+        <value>Daily measurements incomplete</value>
+    </data>
+    
+    
+<!--alerts    -->
+    <data name="AlertTitle" xml:space="preserve">
+        <value>Alert</value>
+    </data>
+    <data name="AlertSuccess" xml:space="preserve">
+        <value>Success!</value>
+    </data>
+    <data name="Ok" xml:space="preserve">
+        <value>Ok</value>
+    </data>
+    <data name="AlertNotFilled" xml:space="preserve">
+        <value>Need to fill at least one field</value>
+    </data>
+    
+    <data name="ProfileTab" xml:space="preserve">
+        <value>Profile</value>
+    </data>
+    <data name="MarathonTab" xml:space="preserve">
+        <value>Results</value>
+    </data>
+    <data name="ResultsTab" xml:space="preserve">
+        <value>Shop</value>
+    </data>
+    <data name="MenuTab" xml:space="preserve">
+        <value>Menu</value>
+    </data>
+    <data name="ExecTab" xml:space="preserve">
+        <value>Exercises</value>
+    </data>
+    <data name="ChatTab" xml:space="preserve">
+        <value>Chat</value>
+    </data>
+    
+    
+<!--    chooseMar-->
+    <data name="ChooseMarathonTitle" xml:space="preserve">
+        <value>Choose marathon</value>
+    </data>
+    <data name="Price" xml:space="preserve">
+        <value>Price:</value>
+    </data>
+    <data name="Buy" xml:space="preserve">
+        <value>Buy</value>
+    </data>
+    
+    
+</root>

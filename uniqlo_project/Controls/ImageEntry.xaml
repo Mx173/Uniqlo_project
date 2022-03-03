@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="uniqlo_project.Controls.ImageEntry"
+             xmlns:controls="clr-namespace:uniqlo_project.Controls"
+             x:Name="imgEntry">
+    
+    <Grid Padding="2" BindingContext="{x:Reference Name=imgEntry}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="0.6*" />
+                <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <Image Source="{Binding ImageSource}" VerticalOptions="Center" Grid.Column="0"/>
+        
+        <controls:ExtendedEntry Grid.Column="1"
+            x:Name="ExtEntry"
+            Text="{Binding Text, Mode=TwoWay}"
+            Placeholder="{Binding PlaceholderText}"
+            Keyboard="{Binding Keyboard}"
+            HasBorder="false"
+            IsPassword="{Binding IsPassword}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Fill"
+            FontSize="15"
+            MaxLength="{Binding MaxLength}"
+            HorizontalTextAlignment="{Binding HorizontalTextAlignment}"/>
+
+        <controls:ClickableContentView HorizontalOptions="EndAndExpand" x:Name="seePassword" VerticalOptions="Center" IsVisible="{Binding IsPasswordEntry}" Padding="0,0,5,0" Grid.Column="2">
+            <Image Source="pic_gallery" x:Name="passwordImage"/>
+        </controls:ClickableContentView>
+    </Grid>
+</ContentView>

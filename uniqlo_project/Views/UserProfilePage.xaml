@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                       xmlns:views="clr-namespace:uniqlo_project.Views;assembly=uniqlo_project" 
+                       xmlns:ncontrol="clr-namespace:NControl.Controls;assembly=NControl.Controls" 
+                       xmlns:controls="clr-namespace:uniqlo_project.Controls" 
+                       xmlns:resources="clr-namespace:uniqlo_project.Resources.Strings"
+                       xmlns:behavior="clr-namespace:uniqlo_project.Validations"
+                       xmlns:local="clr-namespace:uniqlo_project"
+                       x:Class="uniqlo_project.Views.UserProfilePage"
+                       xmlns:imageCircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+                       BackgroundColor="{StaticResource lightBackgroundColor}">
+
+    <StackLayout>
+        
+        
+        <controls:NavigationBar Title="{x:Static resources:Strings.UserProfileTitle}"
+                                GoBackCommand="{Binding BackCommand}" SettingsVisibility="false"/>
+        <ScrollView>
+        <StackLayout>
+        <controls:CustomLabel Text="{x:Static resources:Strings.ProfileSectionTitle}" FontAttributes="Bold" FontSize="14" Margin="20,20,20,0" />
+        
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            
+            <imageCircle:CircleImage Grid.Column="1" Grid.Row="1"
+                Source="{Binding Attachment}" HorizontalOptions="Start"
+                WidthRequest="60"
+                HeightRequest="60"
+                Aspect="AspectFill"
+                BorderThickness="0"/>
+            
+            <controls:ClickableContentView Grid.Column="2" Grid.Row="1" Command="{Binding ChangeAvatarCommand}"
+                                           HorizontalOptions="Start" WidthRequest="140" HeightRequest="30" VerticalOptions="Center" >
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" >
+                    <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" CornerRadius="6" BorderWidth="1" >
+                        <Label TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"
+                               Text="{x:Static resources:Strings.ChangePhoto}" FontSize="15" />
+                    </ncontrol:RoundCornerView>
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>
+        </Grid>
+        
+        <BoxView Style="{StaticResource Separator}" Margin="20,10,20,10"/>
+         
+                
+        <controls:CustomLabel Text="{x:Static resources:Strings.PersonalDataSectionTitle}" FontAttributes="Bold" FontSize="14" Margin="20,5,20,10" />
+        
+        <controls:ShadowFrame HeightRequest="45" CornerRadius="4" Padding="0" HasShadow="true" Margin="20,0,20,0">
+            <controls:ImageEntry Text="{Binding Name}" PlaceholderText="{x:Static resources:Strings.YourNameTitle}" Keyboard="Default"  VerticalOptions="Center" IsPassword="false" />
+        </controls:ShadowFrame>
+        
+        <Grid Margin="20,3,20,0">
+                
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            
+            <controls:CustomLabel Grid.Column="0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Text="{x:Static resources:Strings.SelectGenderTitle}"
+                FontFamily="{x:Static local:Fonts.MonserratMedium}"
+                TextColor="{StaticResource placeholderColor}"
+                FontSize="15"
+                Margin="0,0,10,0"/>
+                
+            <StackLayout Grid.Column="1" HorizontalOptions = "Start" Margin="0,0,0,0" >
+                <controls:ClickableContentView Command="{Binding MaleClickCommand}" >
+                    <Image  Source="pic_male_unselected" HeightRequest="40">
+                        <Image.Triggers>
+                   
+                            <DataTrigger TargetType="Image" Binding="{Binding Gender}" Value="Male">
+                                 <Setter Property="Source" Value="pic_male_selected"/>
+                            </DataTrigger>
+                  
+                            <DataTrigger TargetType="Image" Binding="{Binding Gender}" Value="Female">
+                                <Setter Property="Source" Value="pic_male_unselected"/>
+                            </DataTrigger>
+                
+                        </Image.Triggers>
+                    </Image>
+                </controls:ClickableContentView>
+            </StackLayout>
+                    
+            <StackLayout Grid.Column="2" HorizontalOptions = "Start" Margin="0,0,0,0">
+                <controls:ClickableContentView Command="{Binding FemaleClickCommand}">
+                    <Image  Source="pic_female_unselected" HeightRequest="40">
+                        <Image.Triggers>
+                   
+                            <DataTrigger TargetType="Image" Binding="{Binding Gender}" Value="Female">
+                                 <Setter Property="Source" Value="pic_female_selected"/>
+                            </DataTrigger>
+                  
+                       
+                            <DataTrigger TargetType="Image" Binding="{Binding Gender}" Value="Male">
+                                <Setter Property="Source" Value="pic_female_unselected"/>
+                            </DataTrigger>
+                            
+                        </Image.Triggers>
+                    </Image>
+                </controls:ClickableContentView>
+            </StackLayout>
+                
+        </Grid>
+        
+        <controls:ShadowFrame HeightRequest="45" CornerRadius="4" Padding="0" HasShadow="true" Margin="20,-2,20,0">
+            <controls:ImageEntry Text="{Binding Date}" PlaceholderText="{x:Static resources:Strings.BirthDateTitle}" Keyboard="Default" VerticalOptions="Center" IsPassword="false" >
+                <controls:ImageEntry.Behaviors>
+                    <behavior:TelBehavior Mask="XX-XX-XXXX" />
+                </controls:ImageEntry.Behaviors>
+            </controls:ImageEntry>
+        </controls:ShadowFrame>
+        
+        <controls:ShadowFrame HeightRequest="45" CornerRadius="4" Padding="0" HasShadow="true" Margin="20,0,20,0">
+            <controls:ImageEntry Text="{Binding Email}" PlaceholderText="{x:Static resources:Strings.Email}" Keyboard="Email" VerticalOptions="Center" IsPassword="false" />
+        </controls:ShadowFrame>
+        
+        <controls:ShadowFrame HeightRequest="45" CornerRadius="4" Padding="0" HasShadow="true" Margin="20,0,20,0">
+            <controls:ImageEntry Text="{Binding Phone}" PlaceholderText="{x:Static resources:Strings.PhoneTitle}" Keyboard="Numeric" VerticalOptions="Center" IsPassword="false">
+                <controls:ImageEntry.Behaviors>
+                    <behavior:TelBehavior Mask="(XXX) XXX XX XX" />
+                </controls:ImageEntry.Behaviors>
+            </controls:ImageEntry>
+        </controls:ShadowFrame>
+
+        <controls:ClickableContentView Command="{Binding ChangeInfoCommand}" HorizontalOptions="Center" VerticalOptions="Center" Margin="20" >
+            <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" >
+                <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" CornerRadius="6" BorderWidth="1" >
+                    <Grid>
+                        <controls:NavPageGradientBGControl/>
+                        <Label TextColor="{StaticResource lightAccentColor}" VerticalOptions="Center" HorizontalOptions="Center" Text="{x:Static resources:Strings.Save}" FontSize="17" />
+                    </Grid>
+                </ncontrol:RoundCornerView>
+            </controls:ShadowFrame>
+        </controls:ClickableContentView>
+
+
+        <BoxView Style="{StaticResource Separator}" Margin="20,15,20,0"/>
+        
+        
+        <controls:CustomLabel Text="{x:Static resources:Strings.ChangePassTitle}" FontAttributes="Bold" FontSize="14" Margin="20,0,20,10" />
+        
+        <controls:ShadowFrame HeightRequest="45" CornerRadius="4" Padding="0" HasShadow="true" Margin="20,0,20,0">
+            <controls:ImageEntry Text="{Binding OldPassword}" PlaceholderText="{x:Static resources:Strings.CurrentPassword}" Keyboard="Default" VerticalOptions="Center" IsPassword="true" />
+        </controls:ShadowFrame>
+        
+        <controls:ShadowFrame HeightRequest="45" CornerRadius="4" Padding="0" HasShadow="true" Margin="20,0,20,0">
+            <controls:ImageEntry Text="{Binding NewPassword}" PlaceholderText="{x:Static resources:Strings.NewPassword}" Keyboard="Default" VerticalOptions="Center" IsPassword="true" />
+        </controls:ShadowFrame>
+
+        <controls:CustomLabel 
+                    HorizontalOptions="Center" 
+                    HorizontalTextAlignment="Center" 
+                    Text="{Binding PasswordAlert}" 
+                    HeightRequest="15"
+                    Style="{StaticResource ErrorLabelStyle}"/>
+
+        <controls:ClickableContentView Command="{Binding ResetPasswordCommand}" HorizontalOptions="Center" VerticalOptions="Center" Margin="20" >
+            <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" >
+                <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" CornerRadius="6" BorderWidth="1" >
+                    <Grid>
+                        <controls:NavPageGradientBGControl/>
+                        <Label TextColor="{StaticResource lightAccentColor}" VerticalOptions="Center" HorizontalOptions="Center" Text="{x:Static resources:Strings.Save}" FontSize="17" />
+                    </Grid>
+                </ncontrol:RoundCornerView>
+            </controls:ShadowFrame>
+        </controls:ClickableContentView>
+
+        </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</views:BaseContentPage>

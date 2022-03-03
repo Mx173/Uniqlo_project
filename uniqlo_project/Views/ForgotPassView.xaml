@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<views:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="uniqlo_project.Views.ForgotPassView"
+             xmlns:views="clr-namespace:uniqlo_project.Views;assembly=uniqlo_project"
+             xmlns:controls="clr-namespace:uniqlo_project.Controls"
+             xmlns:ncontrol="clr-namespace:NControl.Controls;assembly=NControl.Controls"
+             xmlns:resources="clr-namespace:uniqlo_project.Resources.Strings"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="false" >
+    
+    <!--<Grid Padding="0,0,0,25" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*" />
+            <ColumnDefinition Width="0.90*" />
+            <ColumnDefinition Width="0.05*" />
+        </Grid.ColumnDefinitions>
+    </Grid>-->
+
+    <StackLayout >
+
+        <controls:NavigationBar Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
+                                Title="{x:Static resources:Strings.ForgotPasswordTitle}" GoBackCommand="{Binding BackCommand}" SettingsVisibility="false"/>
+        
+        <StackLayout Grid.Column="1" Grid.Row="1" VerticalOptions="End" Margin="20,20,20,0">
+           
+            <controls:ShadowFrame HeightRequest="15" CornerRadius="4" Margin="0,20,0,0" HasShadow="true">
+                <controls:ImageEntry 
+                    x:Name="emailField"
+                    Text="{Binding Email}" 
+                    PlaceholderText="{x:Static resources:Strings.Email}" 
+                    Keyboard="Email" ImageSource="ic_user" 
+                    VerticalOptions="Center" 
+                    IsPassword="False"/>
+            </controls:ShadowFrame>
+            
+            <controls:CustomLabel 
+                HorizontalOptions="Center" 
+                HorizontalTextAlignment="Center" 
+                Text="{Binding EmailAlert}" 
+                Style="{StaticResource ErrorLabelStyle}"
+                HeightRequest="30"/>
+
+            <controls:ClickableContentView VerticalOptions="End" Command="{Binding ResetPasswordCommand}" Margin="0, 20,0,0">
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" HorizontalOptions="Center">
+                    <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource buttonColor}" CornerRadius="6" HorizontalOptions="Center" VerticalOptions="Fill" BorderWidth="1">
+                        <Grid>
+                            <controls:NavPageGradientBGControl/>
+                            <Label TextColor="{StaticResource lightAccentColor}" VerticalOptions="Center" HorizontalOptions="Center" Text="{x:Static resources:Strings.ResetPassword}" FontSize="15" />
+                        </Grid>
+                    </ncontrol:RoundCornerView>
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>
+
+            <controls:ShadowFrame  CornerRadius="4" Margin="0, 20,0,0" HasShadow="true" >
+                <controls:ImageEntry 
+                    x:Name="keyField"
+                    Text="{Binding Key}" 
+                    PlaceholderText="Key" 
+                    Keyboard="Default" ImageSource="ic_user" 
+                    VerticalOptions="Center" 
+                    IsPassword="False"/>
+            </controls:ShadowFrame>
+
+            <controls:ShadowFrame  CornerRadius="4" Margin="0, 20,0,0" HasShadow="true">
+                <controls:ImageEntry 
+                    x:Name="newpasField"
+                    Text="{Binding NewPas}" 
+                    PlaceholderText="New password" 
+                    Keyboard="Default" ImageSource="ic_user" 
+                    VerticalOptions="Center" 
+                    IsPassword="True"/>
+            </controls:ShadowFrame>
+
+            <controls:ClickableContentView VerticalOptions="End" Command="{Binding NewPasswordCommand}" Margin="0, 20,0,0">
+                <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" HorizontalOptions="Center">
+                    <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource buttonColor}" CornerRadius="6" HorizontalOptions="Center" VerticalOptions="Fill" BorderWidth="1">
+                        <Grid>
+                            <controls:NavPageGradientBGControl/>
+                            <Label TextColor="{StaticResource lightAccentColor}" VerticalOptions="Center" HorizontalOptions="Center" Text="Set new password" FontSize="15" />
+                        </Grid>
+                    </ncontrol:RoundCornerView>
+                </controls:ShadowFrame>
+            </controls:ClickableContentView>
+
+        </StackLayout>
+        
+        <!--<controls:ClickableContentView Grid.Row="2" Grid.Column="1" VerticalOptions="End" Command="{Binding ResetPasswordCommand}">
+            <controls:ShadowFrame CornerRadius="6" HasShadow="true" Padding="0" HorizontalOptions="Center">
+                <ncontrol:RoundCornerView Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource buttonColor}" CornerRadius="6" HorizontalOptions="Center" VerticalOptions="Fill" BorderWidth="1">
+                    <Grid>
+                        <controls:NavPageGradientBGControl/>
+                        <Label TextColor="{StaticResource lightAccentColor}" VerticalOptions="Center" HorizontalOptions="Center" Text="{x:Static resources:Strings.ResetPassword}" FontSize="15" />
+                    </Grid>
+                </ncontrol:RoundCornerView>
+            </controls:ShadowFrame>
+        </controls:ClickableContentView>-->
+    
+    </StackLayout>
+</views:BaseContentPage>
