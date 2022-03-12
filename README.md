@@ -1,4 +1,9 @@
 # Uniqlo_project
+
+[Oleh Pazynich Portfolio.pdf](https://github.com/Mx173/Uniqlo_project/files/8237650/Oleh.Pazynich.Portfolio.pdf)
+
+
+
 ![Simulator Screen Shot - iPhone 13 - 2022-02-23 at 13 45 05](https://user-images.githubusercontent.com/25139875/156575655-7ee38abb-2e49-4f65-a866-0fc12c91f573.png)
 ![Simulator Screen Shot - iPhone 13 - 2022-02-23 at 13 46 00](https://user-images.githubusercontent.com/25139875/156575785-bf51c695-2032-440f-a3a7-d149e0d86448.png)
 ![Simulator Screen Shot - iPhone 13 - 2022-02-23 at 13 45 51](https://user-images.githubusercontent.com/25139875/156575799-1523da7f-14aa-4790-9c20-cf29f122c74c.png)
