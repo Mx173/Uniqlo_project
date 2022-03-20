@@ -1,16 +1,15 @@
 # Uniqlo_project
-<br />
-<br />
-<br />
-<br />
-<br />
+.<br />
+.<br />
+.<br />
+.<br />
 Please, download the PDF with explanation.
 [Oleh Pazynich Portfolio.pdf](https://github.com/Mx173/Uniqlo_project/files/8237650/Oleh.Pazynich.Portfolio.pdf)
-<br />
-<br />
-<br />
-<br />
-<br />
+.<br />
+.<br />
+.<br />
+.<br />
+.<br />
 
 
 ![Simulator Screen Shot - iPhone 13 - 2022-02-23 at 13 45 05](https://user-images.githubusercontent.com/25139875/156575655-7ee38abb-2e49-4f65-a866-0fc12c91f573.png)
