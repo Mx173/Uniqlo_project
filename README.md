@@ -2,10 +2,8 @@
 .<br />
 .<br />
 .<br />
-.<br />
 Please, download the PDF with explanation.
 [Oleh Pazynich Portfolio.pdf](https://github.com/Mx173/Uniqlo_project/files/8237650/Oleh.Pazynich.Portfolio.pdf)
-.<br />
 .<br />
 .<br />
 .<br />
